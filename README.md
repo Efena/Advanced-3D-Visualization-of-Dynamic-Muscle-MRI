@@ -17,4 +17,4 @@ To use this script after dowloading all the files, follow these steps:
 2.) Click on 'builtin' in the 'pipeline browser' to open the files, ensuring to open the magnitude 'mag' file first, followed by the same strain for the three muscle types.
 i.e 'mag, strain_max1_GL, strain_max1_GM, strain_max1_Soleus' and not 'mag, strain_max1_GL, strain_max2_GM, strain_max3_Soleus' or any other combinations.
 
-*this text description is still work in progress...*
+*this text description is still a work in progress...*
