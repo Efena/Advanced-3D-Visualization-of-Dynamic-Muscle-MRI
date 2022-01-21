@@ -428,146 +428,146 @@ renderView1.Update()
 
 # create a new 'Legacy VTK Reader'
 #This method uses the filepath. Input the file path and uncomment this line of code
-strain_max1_GL_Lvtk = LegacyVTKReader(registrationName='strain_max1_GL_L.vtk', FileNames=['C:\\Users\\Efena\\Desktop\\UNIBAS MASTER\\Thesis\\paraview_files\\Muscle_stim_extracted\\strain_max1_GL_L.vtk'])
+#strain_max1_GLvtk = LegacyVTKReader(registrationName='strain_max1_GL.vtk', FileNames=['C:\\Users\\Efena\\Desktop\\UNIBAS MASTER\\Thesis\\paraview_files\\Muscle_stim_extracted\\strain_max1_GL.vtk'])
 
 #This method allows you to directly upload the strain VTK file on the pipeline browser 
-#strain_max1_GL_Lvtk = FindSource('strain_max1_GL_L.vtk') 
+strain_max1_GLvtk = FindSource('strain_max1_GL.vtk') 
 
 # create a new 'Legacy VTK Reader'
-strain_max1_GM_Lvtk = LegacyVTKReader(registrationName='strain_max1_GM_L.vtk', FileNames=['C:\\Users\\Efena\\Desktop\\UNIBAS MASTER\\Thesis\\paraview_files\\Muscle_stim_extracted\\strain_max1_GM_L.vtk'])
-#strain_max1_GM_Lvtk = FindSource('strain_max1_GM_L.vtk')
+#strain_max1_GMvtk = LegacyVTKReader(registrationName='strain_max1_GM.vtk', FileNames=['C:\\Users\\Efena\\Desktop\\UNIBAS MASTER\\Thesis\\paraview_files\\Muscle_stim_extracted\\strain_max1_GM.vtk'])
+strain_max1_GMvtk = FindSource('strain_max1_GM.vtk')
 
 # create a new 'Legacy VTK Reader'
-strain_max1_Soleus_Lvtk = LegacyVTKReader(registrationName='strain_max1_Soleus_L.vtk', FileNames=['C:\\Users\\Efena\\Desktop\\UNIBAS MASTER\\Thesis\\paraview_files\\Muscle_stim_extracted\\strain_max1_Soleus_L.vtk'])
-#strain_max1_Soleus_Lvtk = FindSource('strain_max1_Soleus_L.vtk')
+#strain_max1_Soleusvtk = LegacyVTKReader(registrationName='strain_max1_Soleus.vtk', FileNames=['C:\\Users\\Efena\\Desktop\\UNIBAS MASTER\\Thesis\\paraview_files\\Muscle_stim_extracted\\strain_max1_Soleus.vtk'])
+strain_max1_Soleusvtk = FindSource('strain_max1_Soleus.vtk')
 
 # show data in view
-strain_max1_GM_LvtkDisplay = Show(strain_max1_GM_Lvtk, renderView1, 'UniformGridRepresentation')
+strain_max1_GMvtkDisplay = Show(strain_max1_GMvtk, renderView1, 'UniformGridRepresentation')
 
 
 # trace defaults for the display properties.
-strain_max1_GM_LvtkDisplay.Representation = 'Outline'
-strain_max1_GM_LvtkDisplay.ColorArrayName = ['POINTS', '']
-strain_max1_GM_LvtkDisplay.SelectTCoordArray = 'None'
-strain_max1_GM_LvtkDisplay.SelectNormalArray = 'None'
-strain_max1_GM_LvtkDisplay.SelectTangentArray = 'None'
-strain_max1_GM_LvtkDisplay.OSPRayScaleArray = 'strain1_GM'
-strain_max1_GM_LvtkDisplay.OSPRayScaleFunction = 'PiecewiseFunction'
-strain_max1_GM_LvtkDisplay.SelectOrientationVectors = 'None'
-strain_max1_GM_LvtkDisplay.ScaleFactor = 13.9
-strain_max1_GM_LvtkDisplay.SelectScaleArray = 'strain1_GM'
-strain_max1_GM_LvtkDisplay.GlyphType = 'Arrow'
-strain_max1_GM_LvtkDisplay.GlyphTableIndexArray = 'strain1_GM'
-strain_max1_GM_LvtkDisplay.GaussianRadius = 0.6950000000000001
-strain_max1_GM_LvtkDisplay.SetScaleArray = ['POINTS', 'strain1_GM']
-strain_max1_GM_LvtkDisplay.ScaleTransferFunction = 'PiecewiseFunction'
-strain_max1_GM_LvtkDisplay.OpacityArray = ['POINTS', 'strain1_GM']
-strain_max1_GM_LvtkDisplay.OpacityTransferFunction = 'PiecewiseFunction'
-strain_max1_GM_LvtkDisplay.DataAxesGrid = 'GridAxesRepresentation'
-strain_max1_GM_LvtkDisplay.PolarAxes = 'PolarAxesRepresentation'
-strain_max1_GM_LvtkDisplay.ScalarOpacityUnitDistance = 2.1732040740818825
-strain_max1_GM_LvtkDisplay.OpacityArrayName = ['POINTS', 'strain1_GM']
-strain_max1_GM_LvtkDisplay.IsosurfaceValues = [0.17499999701976776]
-strain_max1_GM_LvtkDisplay.SliceFunction = 'Plane'
-strain_max1_GM_LvtkDisplay.Slice = 21
+strain_max1_GMvtkDisplay.Representation = 'Outline'
+strain_max1_GMvtkDisplay.ColorArrayName = ['POINTS', '']
+strain_max1_GMvtkDisplay.SelectTCoordArray = 'None'
+strain_max1_GMvtkDisplay.SelectNormalArray = 'None'
+strain_max1_GMvtkDisplay.SelectTangentArray = 'None'
+strain_max1_GMvtkDisplay.OSPRayScaleArray = 'strain1_GM'
+strain_max1_GMvtkDisplay.OSPRayScaleFunction = 'PiecewiseFunction'
+strain_max1_GMvtkDisplay.SelectOrientationVectors = 'None'
+strain_max1_GMvtkDisplay.ScaleFactor = 13.9
+strain_max1_GMvtkDisplay.SelectScaleArray = 'strain1_GM'
+strain_max1_GMvtkDisplay.GlyphType = 'Arrow'
+strain_max1_GMvtkDisplay.GlyphTableIndexArray = 'strain1_GM'
+strain_max1_GMvtkDisplay.GaussianRadius = 0.6950000000000001
+strain_max1_GMvtkDisplay.SetScaleArray = ['POINTS', 'strain1_GM']
+strain_max1_GMvtkDisplay.ScaleTransferFunction = 'PiecewiseFunction'
+strain_max1_GMvtkDisplay.OpacityArray = ['POINTS', 'strain1_GM']
+strain_max1_GMvtkDisplay.OpacityTransferFunction = 'PiecewiseFunction'
+strain_max1_GMvtkDisplay.DataAxesGrid = 'GridAxesRepresentation'
+strain_max1_GMvtkDisplay.PolarAxes = 'PolarAxesRepresentation'
+strain_max1_GMvtkDisplay.ScalarOpacityUnitDistance = 2.1732040740818825
+strain_max1_GMvtkDisplay.OpacityArrayName = ['POINTS', 'strain1_GM']
+strain_max1_GMvtkDisplay.IsosurfaceValues = [0.17499999701976776]
+strain_max1_GMvtkDisplay.SliceFunction = 'Plane'
+strain_max1_GMvtkDisplay.Slice = 21
 
 
 # init the 'PiecewiseFunction' selected for 'ScaleTransferFunction'
-strain_max1_GM_LvtkDisplay.ScaleTransferFunction.Points = [-0.15000000596046448, 0.0, 0.5, 0.0, 0.5, 1.0, 0.5, 0.0]
+strain_max1_GMvtkDisplay.ScaleTransferFunction.Points = [-0.15000000596046448, 0.0, 0.5, 0.0, 0.5, 1.0, 0.5, 0.0]
 
 
 # init the 'PiecewiseFunction' selected for 'OpacityTransferFunction'
-strain_max1_GM_LvtkDisplay.OpacityTransferFunction.Points = [-0.15000000596046448, 0.0, 0.5, 0.0, 0.5, 1.0, 0.5, 0.0]
+strain_max1_GMvtkDisplay.OpacityTransferFunction.Points = [-0.15000000596046448, 0.0, 0.5, 0.0, 0.5, 1.0, 0.5, 0.0]
 
 
 # init the 'Plane' selected for 'SliceFunction'
-strain_max1_GM_LvtkDisplay.SliceFunction.Origin = [69.5, 33.5, 21.5]
+strain_max1_GMvtkDisplay.SliceFunction.Origin = [69.5, 33.5, 21.5]
 
 
 # show data in view
-strain_max1_Soleus_LvtkDisplay = Show(strain_max1_Soleus_Lvtk, renderView1, 'UniformGridRepresentation')
+strain_max1_SoleusvtkDisplay = Show(strain_max1_Soleusvtk, renderView1, 'UniformGridRepresentation')
 
 
 # trace defaults for the display properties.
-strain_max1_Soleus_LvtkDisplay.Representation = 'Outline'
-strain_max1_Soleus_LvtkDisplay.ColorArrayName = ['POINTS', '']
-strain_max1_Soleus_LvtkDisplay.SelectTCoordArray = 'None'
-strain_max1_Soleus_LvtkDisplay.SelectNormalArray = 'None'
-strain_max1_Soleus_LvtkDisplay.SelectTangentArray = 'None'
-strain_max1_Soleus_LvtkDisplay.OSPRayScaleArray = 'strain1_SL'
-strain_max1_Soleus_LvtkDisplay.OSPRayScaleFunction = 'PiecewiseFunction'
-strain_max1_Soleus_LvtkDisplay.SelectOrientationVectors = 'None'
-strain_max1_Soleus_LvtkDisplay.ScaleFactor = 13.9
-strain_max1_Soleus_LvtkDisplay.SelectScaleArray = 'strain1_SL'
-strain_max1_Soleus_LvtkDisplay.GlyphType = 'Arrow'
-strain_max1_Soleus_LvtkDisplay.GlyphTableIndexArray = 'strain1_SL'
-strain_max1_Soleus_LvtkDisplay.GaussianRadius = 0.6950000000000001
-strain_max1_Soleus_LvtkDisplay.SetScaleArray = ['POINTS', 'strain1_SL']
-strain_max1_Soleus_LvtkDisplay.ScaleTransferFunction = 'PiecewiseFunction'
-strain_max1_Soleus_LvtkDisplay.OpacityArray = ['POINTS', 'strain1_SL']
-strain_max1_Soleus_LvtkDisplay.OpacityTransferFunction = 'PiecewiseFunction'
-strain_max1_Soleus_LvtkDisplay.DataAxesGrid = 'GridAxesRepresentation'
-strain_max1_Soleus_LvtkDisplay.PolarAxes = 'PolarAxesRepresentation'
-strain_max1_Soleus_LvtkDisplay.ScalarOpacityUnitDistance = 2.1732040740818825
-strain_max1_Soleus_LvtkDisplay.OpacityArrayName = ['POINTS', 'strain1_SL']
-strain_max1_Soleus_LvtkDisplay.IsosurfaceValues = [0.19999999925494194]
-strain_max1_Soleus_LvtkDisplay.SliceFunction = 'Plane'
-strain_max1_Soleus_LvtkDisplay.Slice = 21
+strain_max1_SoleusvtkDisplay.Representation = 'Outline'
+strain_max1_SoleusvtkDisplay.ColorArrayName = ['POINTS', '']
+strain_max1_SoleusvtkDisplay.SelectTCoordArray = 'None'
+strain_max1_SoleusvtkDisplay.SelectNormalArray = 'None'
+strain_max1_SoleusvtkDisplay.SelectTangentArray = 'None'
+strain_max1_SoleusvtkDisplay.OSPRayScaleArray = 'strain1_SL'
+strain_max1_SoleusvtkDisplay.OSPRayScaleFunction = 'PiecewiseFunction'
+strain_max1_SoleusvtkDisplay.SelectOrientationVectors = 'None'
+strain_max1_SoleusvtkDisplay.ScaleFactor = 13.9
+strain_max1_SoleusvtkDisplay.SelectScaleArray = 'strain1_SL'
+strain_max1_SoleusvtkDisplay.GlyphType = 'Arrow'
+strain_max1_SoleusvtkDisplay.GlyphTableIndexArray = 'strain1_SL'
+strain_max1_SoleusvtkDisplay.GaussianRadius = 0.6950000000000001
+strain_max1_SoleusvtkDisplay.SetScaleArray = ['POINTS', 'strain1_SL']
+strain_max1_SoleusvtkDisplay.ScaleTransferFunction = 'PiecewiseFunction'
+strain_max1_SoleusvtkDisplay.OpacityArray = ['POINTS', 'strain1_SL']
+strain_max1_SoleusvtkDisplay.OpacityTransferFunction = 'PiecewiseFunction'
+strain_max1_SoleusvtkDisplay.DataAxesGrid = 'GridAxesRepresentation'
+strain_max1_SoleusvtkDisplay.PolarAxes = 'PolarAxesRepresentation'
+strain_max1_SoleusvtkDisplay.ScalarOpacityUnitDistance = 2.1732040740818825
+strain_max1_SoleusvtkDisplay.OpacityArrayName = ['POINTS', 'strain1_SL']
+strain_max1_SoleusvtkDisplay.IsosurfaceValues = [0.19999999925494194]
+strain_max1_SoleusvtkDisplay.SliceFunction = 'Plane'
+strain_max1_SoleusvtkDisplay.Slice = 21
 
 
 # init the 'PiecewiseFunction' selected for 'ScaleTransferFunction'
-strain_max1_Soleus_LvtkDisplay.ScaleTransferFunction.Points = [-0.10000000149011612, 0.0, 0.5, 0.0, 0.5, 1.0, 0.5, 0.0]
+strain_max1_SoleusvtkDisplay.ScaleTransferFunction.Points = [-0.10000000149011612, 0.0, 0.5, 0.0, 0.5, 1.0, 0.5, 0.0]
 
 
 # init the 'PiecewiseFunction' selected for 'OpacityTransferFunction'
-strain_max1_Soleus_LvtkDisplay.OpacityTransferFunction.Points = [-0.10000000149011612, 0.0, 0.5, 0.0, 0.5, 1.0, 0.5, 0.0]
+strain_max1_SoleusvtkDisplay.OpacityTransferFunction.Points = [-0.10000000149011612, 0.0, 0.5, 0.0, 0.5, 1.0, 0.5, 0.0]
 
 
 # init the 'Plane' selected for 'SliceFunction'
-strain_max1_Soleus_LvtkDisplay.SliceFunction.Origin = [69.5, 33.5, 21.5]
+strain_max1_SoleusvtkDisplay.SliceFunction.Origin = [69.5, 33.5, 21.5]
 
 
 # show data in view
-strain_max1_GL_LvtkDisplay = Show(strain_max1_GL_Lvtk, renderView1, 'UniformGridRepresentation')
+strain_max1_GLvtkDisplay = Show(strain_max1_GLvtk, renderView1, 'UniformGridRepresentation')
 
 
 # trace defaults for the display properties.
-strain_max1_GL_LvtkDisplay.Representation = 'Outline'
-strain_max1_GL_LvtkDisplay.ColorArrayName = ['POINTS', '']
-strain_max1_GL_LvtkDisplay.SelectTCoordArray = 'None'
-strain_max1_GL_LvtkDisplay.SelectNormalArray = 'None'
-strain_max1_GL_LvtkDisplay.SelectTangentArray = 'None'
-strain_max1_GL_LvtkDisplay.OSPRayScaleArray = 'strain1_GL'
-strain_max1_GL_LvtkDisplay.OSPRayScaleFunction = 'PiecewiseFunction'
-strain_max1_GL_LvtkDisplay.SelectOrientationVectors = 'None'
-strain_max1_GL_LvtkDisplay.ScaleFactor = 13.9
-strain_max1_GL_LvtkDisplay.SelectScaleArray = 'strain1_GL'
-strain_max1_GL_LvtkDisplay.GlyphType = 'Arrow'
-strain_max1_GL_LvtkDisplay.GlyphTableIndexArray = 'strain1_GL'
-strain_max1_GL_LvtkDisplay.GaussianRadius = 0.6950000000000001
-strain_max1_GL_LvtkDisplay.SetScaleArray = ['POINTS', 'strain1_GL']
-strain_max1_GL_LvtkDisplay.ScaleTransferFunction = 'PiecewiseFunction'
-strain_max1_GL_LvtkDisplay.OpacityArray = ['POINTS', 'strain1_GL']
-strain_max1_GL_LvtkDisplay.OpacityTransferFunction = 'PiecewiseFunction'
-strain_max1_GL_LvtkDisplay.DataAxesGrid = 'GridAxesRepresentation'
-strain_max1_GL_LvtkDisplay.PolarAxes = 'PolarAxesRepresentation'
-strain_max1_GL_LvtkDisplay.ScalarOpacityUnitDistance = 2.1732040740818825
-strain_max1_GL_LvtkDisplay.OpacityArrayName = ['POINTS', 'strain1_GL']
-strain_max1_GL_LvtkDisplay.IsosurfaceValues = [0.025000005960464478]
-strain_max1_GL_LvtkDisplay.SliceFunction = 'Plane'
-strain_max1_GL_LvtkDisplay.Slice = 21
+strain_max1_GLvtkDisplay.Representation = 'Outline'
+strain_max1_GLvtkDisplay.ColorArrayName = ['POINTS', '']
+strain_max1_GLvtkDisplay.SelectTCoordArray = 'None'
+strain_max1_GLvtkDisplay.SelectNormalArray = 'None'
+strain_max1_GLvtkDisplay.SelectTangentArray = 'None'
+strain_max1_GLvtkDisplay.OSPRayScaleArray = 'strain1_GL'
+strain_max1_GLvtkDisplay.OSPRayScaleFunction = 'PiecewiseFunction'
+strain_max1_GLvtkDisplay.SelectOrientationVectors = 'None'
+strain_max1_GLvtkDisplay.ScaleFactor = 13.9
+strain_max1_GLvtkDisplay.SelectScaleArray = 'strain1_GL'
+strain_max1_GLvtkDisplay.GlyphType = 'Arrow'
+strain_max1_GLvtkDisplay.GlyphTableIndexArray = 'strain1_GL'
+strain_max1_GLvtkDisplay.GaussianRadius = 0.6950000000000001
+strain_max1_GLvtkDisplay.SetScaleArray = ['POINTS', 'strain1_GL']
+strain_max1_GLvtkDisplay.ScaleTransferFunction = 'PiecewiseFunction'
+strain_max1_GLvtkDisplay.OpacityArray = ['POINTS', 'strain1_GL']
+strain_max1_GLvtkDisplay.OpacityTransferFunction = 'PiecewiseFunction'
+strain_max1_GLvtkDisplay.DataAxesGrid = 'GridAxesRepresentation'
+strain_max1_GLvtkDisplay.PolarAxes = 'PolarAxesRepresentation'
+strain_max1_GLvtkDisplay.ScalarOpacityUnitDistance = 2.1732040740818825
+strain_max1_GLvtkDisplay.OpacityArrayName = ['POINTS', 'strain1_GL']
+strain_max1_GLvtkDisplay.IsosurfaceValues = [0.025000005960464478]
+strain_max1_GLvtkDisplay.SliceFunction = 'Plane'
+strain_max1_GLvtkDisplay.Slice = 21
 
 
 # init the 'PiecewiseFunction' selected for 'ScaleTransferFunction'
-strain_max1_GL_LvtkDisplay.ScaleTransferFunction.Points = [-0.4399999976158142, 0.0, 0.5, 0.0, 0.49000000953674316, 1.0, 0.5, 0.0]
+strain_max1_GLvtkDisplay.ScaleTransferFunction.Points = [-0.4399999976158142, 0.0, 0.5, 0.0, 0.49000000953674316, 1.0, 0.5, 0.0]
 
 
 # init the 'PiecewiseFunction' selected for 'OpacityTransferFunction'
-strain_max1_GL_LvtkDisplay.OpacityTransferFunction.Points = [-0.4399999976158142, 0.0, 0.5, 0.0, 0.49000000953674316, 1.0, 0.5, 0.0]
+strain_max1_GLvtkDisplay.OpacityTransferFunction.Points = [-0.4399999976158142, 0.0, 0.5, 0.0, 0.49000000953674316, 1.0, 0.5, 0.0]
 
 
 # init the 'Plane' selected for 'SliceFunction'
-strain_max1_GL_LvtkDisplay.SliceFunction.Origin = [69.5, 33.5, 21.5]
+strain_max1_GLvtkDisplay.SliceFunction.Origin = [69.5, 33.5, 21.5]
 
 
 # update the view to ensure updated data information
@@ -595,35 +595,35 @@ Hide(slice3, renderView1)
 
 
 # set active source
-SetActiveSource(strain_max1_GL_Lvtk)
+SetActiveSource(strain_max1_GLvtk)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Show3DWidgets(proxy=strain_max1_GL_LvtkDisplay.SliceFunction)
+Show3DWidgets(proxy=strain_max1_GLvtkDisplay.SliceFunction)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Show3DWidgets(proxy=strain_max1_GL_LvtkDisplay)
+Show3DWidgets(proxy=strain_max1_GLvtkDisplay)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Hide3DWidgets(proxy=strain_max1_GL_LvtkDisplay.SliceFunction)
+Hide3DWidgets(proxy=strain_max1_GLvtkDisplay.SliceFunction)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Hide3DWidgets(proxy=strain_max1_GL_LvtkDisplay)
+Hide3DWidgets(proxy=strain_max1_GLvtkDisplay)
 
 
 # set scalar coloring
-ColorBy(strain_max1_GL_LvtkDisplay, ('POINTS', 'strain1_GL'))
+ColorBy(strain_max1_GLvtkDisplay, ('POINTS', 'strain1_GL'))
 
 
 # rescale color and/or opacity maps used to include current data range
-strain_max1_GL_LvtkDisplay.RescaleTransferFunctionToDataRange(True, False)
+strain_max1_GLvtkDisplay.RescaleTransferFunctionToDataRange(True, False)
 
 
 # show color bar/color legend
-strain_max1_GL_LvtkDisplay.SetScalarBarVisibility(renderView1, True)
+strain_max1_GLvtkDisplay.SetScalarBarVisibility(renderView1, True)
 
 
 # get color transfer function/color map for 'strain1_GL'
@@ -635,39 +635,39 @@ strain1_GLPWF = GetOpacityTransferFunction('strain1_GL')
 
 
 # change representation type
-strain_max1_GL_LvtkDisplay.SetRepresentationType('Surface')
+strain_max1_GLvtkDisplay.SetRepresentationType('Surface')
 
 
 # set active source
-SetActiveSource(strain_max1_GM_Lvtk)
+SetActiveSource(strain_max1_GMvtk)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Show3DWidgets(proxy=strain_max1_GM_LvtkDisplay.SliceFunction)
+Show3DWidgets(proxy=strain_max1_GMvtkDisplay.SliceFunction)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Show3DWidgets(proxy=strain_max1_GM_LvtkDisplay)
+Show3DWidgets(proxy=strain_max1_GMvtkDisplay)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Hide3DWidgets(proxy=strain_max1_GM_LvtkDisplay.SliceFunction)
+Hide3DWidgets(proxy=strain_max1_GMvtkDisplay.SliceFunction)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Hide3DWidgets(proxy=strain_max1_GM_LvtkDisplay)
+Hide3DWidgets(proxy=strain_max1_GMvtkDisplay)
 
 
 # set scalar coloring
-ColorBy(strain_max1_GM_LvtkDisplay, ('POINTS', 'strain1_GM'))
+ColorBy(strain_max1_GMvtkDisplay, ('POINTS', 'strain1_GM'))
 
 
 # rescale color and/or opacity maps used to include current data range
-strain_max1_GM_LvtkDisplay.RescaleTransferFunctionToDataRange(True, False)
+strain_max1_GMvtkDisplay.RescaleTransferFunctionToDataRange(True, False)
 
 
 # show color bar/color legend
-strain_max1_GM_LvtkDisplay.SetScalarBarVisibility(renderView1, True)
+strain_max1_GMvtkDisplay.SetScalarBarVisibility(renderView1, True)
 
 
 # get color transfer function/color map for 'strain1_GM'
@@ -679,39 +679,39 @@ strain1_GMPWF = GetOpacityTransferFunction('strain1_GM')
 
 
 # change representation type
-strain_max1_GM_LvtkDisplay.SetRepresentationType('Surface')
+strain_max1_GMvtkDisplay.SetRepresentationType('Surface')
 
 
 # set active source
-SetActiveSource(strain_max1_Soleus_Lvtk)
+SetActiveSource(strain_max1_Soleusvtk)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Show3DWidgets(proxy=strain_max1_Soleus_LvtkDisplay.SliceFunction)
+Show3DWidgets(proxy=strain_max1_SoleusvtkDisplay.SliceFunction)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Show3DWidgets(proxy=strain_max1_Soleus_LvtkDisplay)
+Show3DWidgets(proxy=strain_max1_SoleusvtkDisplay)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Hide3DWidgets(proxy=strain_max1_Soleus_LvtkDisplay.SliceFunction)
+Hide3DWidgets(proxy=strain_max1_SoleusvtkDisplay.SliceFunction)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Hide3DWidgets(proxy=strain_max1_Soleus_LvtkDisplay)
+Hide3DWidgets(proxy=strain_max1_SoleusvtkDisplay)
 
 
 # set scalar coloring
-ColorBy(strain_max1_Soleus_LvtkDisplay, ('POINTS', 'strain1_SL'))
+ColorBy(strain_max1_SoleusvtkDisplay, ('POINTS', 'strain1_SL'))
 
 
 # rescale color and/or opacity maps used to include current data range
-strain_max1_Soleus_LvtkDisplay.RescaleTransferFunctionToDataRange(True, False)
+strain_max1_SoleusvtkDisplay.RescaleTransferFunctionToDataRange(True, False)
 
 
 # show color bar/color legend
-strain_max1_Soleus_LvtkDisplay.SetScalarBarVisibility(renderView1, True)
+strain_max1_SoleusvtkDisplay.SetScalarBarVisibility(renderView1, True)
 
 
 # get color transfer function/color map for 'strain1_SL'
@@ -723,27 +723,27 @@ strain1_SLPWF = GetOpacityTransferFunction('strain1_SL')
 
 
 # change representation type
-strain_max1_Soleus_LvtkDisplay.SetRepresentationType('Surface')
+strain_max1_SoleusvtkDisplay.SetRepresentationType('Surface')
 
 
 # set active source
-SetActiveSource(strain_max1_GL_Lvtk)
+SetActiveSource(strain_max1_GLvtk)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Show3DWidgets(proxy=strain_max1_GL_LvtkDisplay.SliceFunction)
+Show3DWidgets(proxy=strain_max1_GLvtkDisplay.SliceFunction)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Show3DWidgets(proxy=strain_max1_GL_LvtkDisplay)
+Show3DWidgets(proxy=strain_max1_GLvtkDisplay)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Hide3DWidgets(proxy=strain_max1_GL_LvtkDisplay.SliceFunction)
+Hide3DWidgets(proxy=strain_max1_GLvtkDisplay.SliceFunction)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Hide3DWidgets(proxy=strain_max1_GL_LvtkDisplay)
+Hide3DWidgets(proxy=strain_max1_GLvtkDisplay)
 
 
 # update the view to ensure updated data information
@@ -751,7 +751,7 @@ renderView1.Update()
 
 
 # create a new 'Extract Subset'
-extractSubset2 = ExtractSubset(registrationName='ExtractSubset2', Input=strain_max1_GL_Lvtk)
+extractSubset2 = ExtractSubset(registrationName='ExtractSubset2', Input=strain_max1_GLvtk)
 extractSubset2.VOI = [0, 139, 0, 67, 0, 43]
 
 
@@ -908,7 +908,7 @@ strain1_GLPWF.Points = [0.2263, 0.0, 0.5, 0.0, 0.4468792676925659, 0.0, 0.5, 0.0
 
 
 # hide data in view
-Hide(strain_max1_GL_Lvtk, renderView1)
+Hide(strain_max1_GLvtk, renderView1)
 
 
 # hide data in view
@@ -916,27 +916,27 @@ Hide(extractSubset2, renderView1)
 
 
 # set active source
-SetActiveSource(strain_max1_GM_Lvtk)
+SetActiveSource(strain_max1_GMvtk)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Show3DWidgets(proxy=strain_max1_GM_LvtkDisplay.SliceFunction)
+Show3DWidgets(proxy=strain_max1_GMvtkDisplay.SliceFunction)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Show3DWidgets(proxy=strain_max1_GM_LvtkDisplay)
+Show3DWidgets(proxy=strain_max1_GMvtkDisplay)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Hide3DWidgets(proxy=strain_max1_GM_LvtkDisplay.SliceFunction)
+Hide3DWidgets(proxy=strain_max1_GMvtkDisplay.SliceFunction)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Hide3DWidgets(proxy=strain_max1_GM_LvtkDisplay)
+Hide3DWidgets(proxy=strain_max1_GMvtkDisplay)
 
 
 # create a new 'Extract Subset'
-extractSubset3 = ExtractSubset(registrationName='ExtractSubset3', Input=strain_max1_GM_Lvtk)
+extractSubset3 = ExtractSubset(registrationName='ExtractSubset3', Input=strain_max1_GMvtk)
 extractSubset3.VOI = [0, 139, 0, 67, 0, 43]
 
 
@@ -1110,7 +1110,7 @@ renderView1.Update()
 
 
 # hide data in view
-Hide(strain_max1_GM_Lvtk, renderView1)
+Hide(strain_max1_GMvtk, renderView1)
 
 
 # hide data in view
@@ -1118,23 +1118,23 @@ Hide(extractSubset3, renderView1)
 
 
 # set active source
-SetActiveSource(strain_max1_Soleus_Lvtk)
+SetActiveSource(strain_max1_Soleusvtk)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Show3DWidgets(proxy=strain_max1_Soleus_LvtkDisplay.SliceFunction)
+Show3DWidgets(proxy=strain_max1_SoleusvtkDisplay.SliceFunction)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Show3DWidgets(proxy=strain_max1_Soleus_LvtkDisplay)
+Show3DWidgets(proxy=strain_max1_SoleusvtkDisplay)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Hide3DWidgets(proxy=strain_max1_Soleus_LvtkDisplay.SliceFunction)
+Hide3DWidgets(proxy=strain_max1_SoleusvtkDisplay.SliceFunction)
 
 
 # toggle 3D widget visibility (only when running from the GUI)
-Hide3DWidgets(proxy=strain_max1_Soleus_LvtkDisplay)
+Hide3DWidgets(proxy=strain_max1_SoleusvtkDisplay)
 
 
 # update the view to ensure updated data information
@@ -1142,7 +1142,7 @@ renderView1.Update()
 
 
 # create a new 'Extract Subset'
-extractSubset4 = ExtractSubset(registrationName='ExtractSubset4', Input=strain_max1_Soleus_Lvtk)
+extractSubset4 = ExtractSubset(registrationName='ExtractSubset4', Input=strain_max1_Soleusvtk)
 extractSubset4.VOI = [0, 139, 0, 67, 0, 43]
 
 
@@ -1265,7 +1265,7 @@ renderView1.Update()
 
 
 # hide data in view
-Hide(strain_max1_Soleus_Lvtk, renderView1)
+Hide(strain_max1_Soleusvtk, renderView1)
 
 
 # hide data in view
@@ -1325,6 +1325,83 @@ magPWF.Points = [0.0, 0.3499999940395355, 0.5, 0.0, 748.0, 1.0, 0.5, 0.0]
 # state to faithfully reproduce the visualization during playback
 #================================================================
 
+# get color transfer function/color map for 'strain1_SL'
+strain1_SLLUT = GetColorTransferFunction('strain1_SL')
+
+# Properties modified on strain1_SLLUT
+strain1_SLLUT.AutomaticRescaleRangeMode = 'Never'
+
+# get opacity transfer function/opacity map for 'strain1_SL'
+strain1_SLPWF = GetOpacityTransferFunction('strain1_SL')
+
+# find source
+threshold2 = FindSource('Threshold2')
+
+# set active source
+SetActiveSource(threshold2)
+
+# get color transfer function/color map for 'strain1_GM'
+strain1_GMLUT = GetColorTransferFunction('strain1_GM')
+
+# get opacity transfer function/opacity map for 'strain1_GM'
+strain1_GMPWF = GetOpacityTransferFunction('strain1_GM')
+
+# find source
+magvtk = FindSource('mag.vtk')
+
+# find source
+strain_max1_GLvtk = FindSource('strain_max1_GL.vtk')
+
+# find source
+strain_max1_GMvtk = FindSource('strain_max1_GM.vtk')
+
+# find source
+strain_max1_Soleusvtk = FindSource('strain_max1_Soleus.vtk')
+
+# find source
+extractSubset1 = FindSource('ExtractSubset1')
+
+# find source
+slice1 = FindSource('Slice1')
+
+# find source
+slice3 = FindSource('Slice3')
+
+# find source
+slice2 = FindSource('Slice2')
+
+# find source
+extractSubset2 = FindSource('ExtractSubset2')
+
+# find source
+threshold1 = FindSource('Threshold1')
+
+# find source
+extractSubset3 = FindSource('ExtractSubset3')
+
+# find source
+extractSubset4 = FindSource('ExtractSubset4')
+
+# find source
+threshold3 = FindSource('Threshold3')
+
+# Properties modified on strain1_GMLUT
+strain1_GMLUT.AutomaticRescaleRangeMode = 'Never'
+
+# set active source
+SetActiveSource(threshold1)
+
+# get color transfer function/color map for 'strain1_GL'
+strain1_GLLUT = GetColorTransferFunction('strain1_GL')
+
+# get opacity transfer function/opacity map for 'strain1_GL'
+strain1_GLPWF = GetOpacityTransferFunction('strain1_GL')
+
+# Properties modified on strain1_GLLUT
+strain1_GLLUT.AutomaticRescaleRangeMode = 'Never'
+
+# get active view
+renderView1 = GetActiveViewOrCreate('RenderView')
 
 # get layout
 layout1 = GetLayout()
