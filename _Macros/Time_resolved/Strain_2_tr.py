@@ -1411,6 +1411,14 @@ magLUT.RGBPoints = [0.0, 0.0, 0.0, 0.0, 748.0, 1.0, 1.0, 1.0]
 # Properties modified on magPWF
 magPWF.Points = [0.0, 0.3499999940395355, 0.5, 0.0, 748.0, 1.0, 0.5, 0.0]
 
+# Properties modified on threshold1
+threshold1.AllScalars = 0
+
+# Properties modified on threshold2
+threshold2.AllScalars = 0
+
+# Properties modified on threshold3
+threshold3.AllScalars = 0
 
 #================================================================
 # addendum: following script captures some of the application

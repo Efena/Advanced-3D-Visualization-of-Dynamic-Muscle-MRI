@@ -852,6 +852,8 @@ threshold1Display.ScaleTransferFunction.Points = [-0.4399999976158142, 0.0, 0.5,
 # init the 'PiecewiseFunction' selected for 'OpacityTransferFunction'
 threshold1Display.OpacityTransferFunction.Points = [-0.4399999976158142, 0.0, 0.5, 0.0, 0.49000000953674316, 1.0, 0.5, 0.0]
 
+# Properties modified on threshold1
+threshold1.AllScalars = 0
 
 # show color bar/color legend
 threshold1Display.SetScalarBarVisibility(renderView1, True)
@@ -862,7 +864,10 @@ renderView1.Update()
 
 
 # Properties modified on threshold1
-threshold1.ThresholdRange = [0.2263, 0.49000000953674316]
+#threshold1.ThresholdRange = [0.2263, 0.49000000953674316]
+GL_T1 = float(input('Min GL Threshold'))
+GL_T2 = float(input('Max GL Threshold'))
+threshold1.ThresholdRange = [GL_T1, GL_T2]
 
 
 # update the view to ensure updated data information
@@ -874,11 +879,11 @@ strain1_GLLUT.EnableOpacityMapping = 1
 
 
 # Rescale transfer function
-strain1_GLLUT.RescaleTransferFunction(0.2263, 0.49000000953674316)
+strain1_GLLUT.RescaleTransferFunction(GL_T1, GL_T2)
 
 
 # Rescale transfer function
-strain1_GLPWF.RescaleTransferFunction(0.2263, 0.49000000953674316)
+strain1_GLPWF.RescaleTransferFunction(GL_T1, GL_T2)
 
 
 
@@ -896,7 +901,8 @@ strain1_GLLUT = GetColorTransferFunction('strain1_GL')
 
 # Properties modified on strain1_GLLUT
 #strain1_GLLUT.RGBPoints = [0.2263, 1.0, 1.0, 1.0, 0.49000000953674316, 0.0, 0.3333333333333333, 1.0]
-strain1_GLLUT.RGBPoints = [0.2263, 1.0, 1.0, 1.0, 0.49, 0.5176470588235295, 0.0, 0.0]
+#strain1_GLLUT.RGBPoints = [0.2263, 1.0, 1.0, 1.0, 0.49, 0.5176470588235295, 0.0, 0.0]
+strain1_GLLUT.RGBPoints = [GL_T1, 1.0, 1.0, 1.0, GL_T2, 0.5176470588235295, 0.0, 0.0]
 
 # get opacity transfer function/opacity map for 'strain1_GL'
 strain1_GLPWF = GetOpacityTransferFunction('strain1_GL')
@@ -904,8 +910,10 @@ strain1_GLPWF = GetOpacityTransferFunction('strain1_GL')
 
 
 # Properties modified on strain1_GLPWF
-strain1_GLPWF.Points = [0.2263, 0.0, 0.5, 0.0, 0.4468792676925659, 0.0, 0.5, 0.0, 0.49000000953674316, 1.0, 0.5, 0.0]
-
+#strain1_GLPWF.Points = [0.2263, 0.0, 0.5, 0.0, 0.4468792676925659, 0.0, 0.5, 0.0, 0.49000000953674316, 1.0, 0.5, 0.0]
+#strain1_GLPWF.Points = [GL_T1, 0.0, 0.5, 0.0, 0.4468792676925659, 0.0, 0.5, 0.0, GL_T2, 1.0, 0.5, 0.0]
+#New test line
+strain1_GLPWF.Points = [GL_T1, 0.0, 0.5, 0.0, 0.26948240399360657, 0.0, 0.5, 0.0, GL_T2, 1.0, 0.5, 0.0, 0.4468792676925659, 0.0, 0.5, 0.0]
 
 # hide data in view
 Hide(strain_max1_GLvtk, renderView1)
@@ -1092,6 +1100,8 @@ Hide3DWidgets(proxy=extractSubset3Display)
 # set active source
 SetActiveSource(threshold2)
 
+# Properties modified on threshold2
+threshold2.AllScalars = 0
 
 # Properties modified on threshold2
 threshold2.ThresholdRange = [0.2263, 0.5]
@@ -1271,6 +1281,8 @@ Hide(strain_max1_Soleusvtk, renderView1)
 # hide data in view
 Hide(extractSubset4, renderView1)
 
+# Properties modified on threshold3
+threshold3.AllScalars = 0
 
 # Properties modified on threshold3
 threshold3.ThresholdRange = [0.2263, 0.5]
@@ -1302,7 +1314,7 @@ strain1_SLPWF.Points = [0.2263, 0.0, 0.5, 0.0, 0.4460499882698059, 0.0, 0.5, 0.0
 
 
 # change representation type
-threshold3Display.SetRepresentationType('Volume')
+threshold3Display.SetRepresentationType('Surface')
 
 
 # Properties modified on threshold3Display
@@ -1311,7 +1323,14 @@ threshold3Display.SelectMapper = 'Resample To Image'
 # Properties modified on magLUT
 magLUT.EnableOpacityMapping = 1
 
+# Properties modified on threshold1
+threshold1.AllScalars = 0
 
+# Properties modified on threshold2
+threshold2.AllScalars = 0
+
+# Properties modified on threshold3
+threshold3.AllScalars = 0
 
 # Properties modified on magLUT
 magLUT.RGBPoints = [0.0, 0.0, 0.0, 0.0, 748.0, 1.0, 1.0, 1.0]

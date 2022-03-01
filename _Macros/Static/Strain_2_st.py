@@ -1524,7 +1524,14 @@ strain2_SLLUT.RGBPoints = [-9.7238, 1.0, 1.0, 1.0, -0.34299999999999997, 0.41568
 # Properties modified on strain2_SLPWF
 strain2_SLPWF.Points = [-9.7238, 0.0, 0.5, 0.0, -1.7589699029922485, 0.0, 0.5, 0.0, -0.34299999999999997, 1.0, 0.5, 0.0]
 
+# Properties modified on threshold1
+threshold1.AllScalars = 0
 
+# Properties modified on threshold2
+threshold2.AllScalars = 0
+
+# Properties modified on threshold3
+threshold3.AllScalars = 0
 
 #================================================================
 # addendum: following script captures some of the application
