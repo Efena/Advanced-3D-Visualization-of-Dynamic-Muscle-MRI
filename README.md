@@ -22,7 +22,7 @@ GM = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_GM.vtk
 SL = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_Soleus.vtk', [0.25, 0.75])
 ```
 
-5. Click on 'Macros > import new macro' tab in the Menu bar to import the macros.
+5. In ParaView, click on 'Macros > import new macro' tab in the Menu bar to import the macros.
 6. Open the strain files on the 'pipeline browser' in ParaView.
 7. Click on 'Macros', run the the desired macro.
 
