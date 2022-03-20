@@ -45,9 +45,9 @@ This pipeline depends on the followig library:
 
 # Authors
 
-This project was done at the Basel Muscle MRI group [BAMM](https://dbe.unibas.ch/en/research/imaging-modelling-diagnosis/basel-muscle-mri/) at the University of Basel
+This project was done at the Basel Muscle MRI group [BAMM](https://dbe.unibas.ch/en/research/imaging-modelling-diagnosis/basel-muscle-mri/) at the University of Basel, Switzerland.
 
-### Collaboarators:
+#### Collaborators:
 - Efena Akporeha
 - Francesco Santini
 - Xeni Deligianni
