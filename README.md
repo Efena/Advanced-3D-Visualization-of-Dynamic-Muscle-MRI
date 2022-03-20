@@ -38,7 +38,7 @@ SL = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_Soleus
 - *If the paths are not changed, the macros will not work!* 
 
 # Dependencies
-This pipeline depends on the followig library:
+This pipeline depends on the following library:
 
 - [NumPy](https://numpy.org/)
 
