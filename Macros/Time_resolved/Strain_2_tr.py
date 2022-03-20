@@ -1,11 +1,79 @@
 # trace generated using paraview version 5.9.1
-
+import os
+import numpy as np
 
 #### import the simple module from the paraview
 from paraview.simple import *
 #### disable automatic camera reset on 'Show'
 paraview.simple._DisableFirstRenderCameraReset()
 
+#This function calculates the quantiles of the time-resolved muscle groups
+def VtkToNumpy(filename):
+    a = np.array([])
+    with open(filename,'r') as f:
+        for line in f:
+            if len(line) > 300:
+                a = np.array(line.split()).astype(np.float32)
+    return a
+
+FileNames = []
+base_path = '/Users/Efena/Desktop/pythonProject/'
+
+#creating a new list of the vlaues of the 24 time resolved gl files
+gl_vtk_list = []
+print('Gastrocnemius Lateralis count starts now')
+for file_number in range(1, 25):
+    # FileNames.append(f'{base_path}strain2_Soleus_t{file_number:02d}.vtk')
+    print("Reading", file_number)
+    filename = f'{base_path}strain2_GL_t{file_number:02d}.vtk'
+    gl_vtk_list.append(VtkToNumpy(filename))
+
+gl_vtk_array = np.concatenate(gl_vtk_list)
+
+#creating a new list of the vlaues of the 24 time resolved gm files
+gm_vtk_list = []
+print('Gastrocnemius Medialis  count starts now')
+for file_number in range(1, 25):
+    # FileNames.append(f'{base_path}strain2_Soleus_t{file_number:02d}.vtk')
+    print("Reading", file_number)
+    filename = f'{base_path}strain2_GM_t{file_number:02d}.vtk'
+    gm_vtk_list.append(VtkToNumpy(filename))
+
+gm_vtk_array = np.concatenate(gm_vtk_list)
+
+#creating a new list of the vlaues of the 24 time resolved soleus files
+soleus_vtk_list = []
+print('Soleus count starts now')
+for file_number in range(1, 25):
+    # FileNames.append(f'{base_path}strain2_Soleus_t{file_number:02d}.vtk')
+
+    print("Reading", file_number)
+    filename = f'{base_path}strain2_Soleus_t{file_number:02d}.vtk'
+    soleus_vtk_list.append(VtkToNumpy(filename))
+
+soleus_vtk_array = np.concatenate(soleus_vtk_list)
+
+def calculateQuantiles(filename, quantiles):
+    if type(filename) == str:
+        arr = VtkToNumpy(filename)
+    else:
+        arr = filename
+    arr = arr[np.nonzero(arr)]
+    output = []
+    for q in quantiles:
+        output.append(np.quantile(arr, q))
+    return output
+
+GL = calculateQuantiles(gl_vtk_array, [0.25, 0.75])
+GM = calculateQuantiles(gm_vtk_array, [0.25, 0.75])
+SL = calculateQuantiles(soleus_vtk_array, [0.25, 0.75])
+
+GL_T1 = GL[0]
+GL_T2 = GL[1]
+GM_T1 = GM[0]
+GM_T2 = GM[1]
+SL_T1 = SL[0]
+SL_T2 = SL[1]
 
 # create a new 'Legacy VTK Reader'
 mag_t = FindSource('mag_t*')
@@ -53,6 +121,16 @@ magPWF = GetOpacityTransferFunction('mag')
 
 # change representation type
 mag_tDisplay.SetRepresentationType('Surface')
+
+# Properties modified on magLUT
+magLUT.EnableOpacityMapping = 1
+
+
+# Properties modified on magLUT
+magLUT.RGBPoints = [0.0, 0.0, 0.0, 0.0, 748.0, 1.0, 1.0, 1.0]
+
+# Properties modified on magPWF
+magPWF.Points = [0.0, 0.3499999940395355, 0.5, 0.0, 748.0, 1.0, 0.5, 0.0]
 
 
 # create a new 'Extract Subset'
@@ -111,30 +189,6 @@ extractSubset1Display.SetScalarBarVisibility(renderView1, True)
 
 # update the view to ensure updated data information
 renderView1.Update()
-
-
-# Properties modified on extractSubset1
-#extractSubset1.VOI = [14, 139, 0, 67, 0, 43]
-
-
-# update the view to ensure updated data information
-#renderView1.Update()
-
-
-# Properties modified on extractSubset1
-#extractSubset1.VOI = [14, 139, 20, 67, 0, 43]
-
-
-# update the view to ensure updated data information
-#renderView1.Update()
-
-
-# Properties modified on extractSubset1
-#extractSubset1.VOI = [14, 139, 20, 67, 14, 43]
-
-
-# update the view to ensure updated data information
-#renderView1.Update()
 
 
 # create a new 'Slice'
@@ -532,7 +586,6 @@ strain2_GM_tDisplay.SliceFunction.Origin = [69.5, 33.5, 21.5]
 # update the view to ensure updated data information
 renderView1.Update()
 
-
 # set active source
 SetActiveSource(mag_t)
 
@@ -607,6 +660,18 @@ strain2_Soleus_tDisplay.SliceFunction.Origin = [69.5, 33.5, 21.5]
 # update the view to ensure updated data information
 renderView1.Update()
 
+#calling the files from which the quantiles are needed
+#replace with file path of the strain files
+GL = calculateQuantiles(gl_vtk_array, [0.25, 0.75])
+GM = calculateQuantiles(gm_vtk_array, [0.25, 0.75])
+SL = calculateQuantiles(soleus_vtk_array, [0.25, 0.75])
+
+GL_T1 = GL[0]
+GL_T2 = GL[1]
+GM_T1 = GM[0]
+GM_T2 = GM[1]
+SL_T1 = SL[0]
+SL_T2 = SL[1]
 
 # hide data in view
 Hide(mag_t, renderView1)
@@ -838,28 +903,6 @@ extractSubset2Display.SetScalarBarVisibility(renderView1, True)
 renderView1.Update()
 
 
-# Properties modified on extractSubset2
-#extractSubset2.VOI = [14, 139, 0, 67, 0, 43]
-
-
-# update the view to ensure updated data information
-#renderView1.Update()
-
-
-# Properties modified on extractSubset2
-#extractSubset2.VOI = [14, 139, 20, 67, 0, 43]
-
-
-# update the view to ensure updated data information
-#renderView1.Update()
-
-# Properties modified on extractSubset2
-#extractSubset2.VOI = [14, 139, 20, 67, 14, 43]
-
-
-# update the view to ensure updated data information
-#renderView1.Update()
-
 
 # create a new 'Threshold'
 threshold1 = Threshold(registrationName='Threshold1', Input=extractSubset2)
@@ -912,42 +955,34 @@ threshold1Display.SetScalarBarVisibility(renderView1, True)
 renderView1.Update()
 
 
-# Properties modified on threshold1
-threshold1.ThresholdRange = [-0.97238, 0.0]
-
-
-# update the view to ensure updated data information
-renderView1.Update()
-
-
-# Properties modified on threshold1
-threshold1.ThresholdRange = [-0.97238, -0.343]
-
-
-# update the view to ensure updated data information
-renderView1.Update()
-
-
 # Properties modified on strain2_GLLUT
 strain2_GLLUT.EnableOpacityMapping = 1
 
-
-# Rescale transfer function
-strain2_GLLUT.RescaleTransferFunction(-9.7238, -0.34299999999999997)
-
-
-# Rescale transfer function
-strain2_GLPWF.RescaleTransferFunction(-9.7238, -0.34299999999999997)
-
+# set active source
+SetActiveSource(threshold1)
 
 # Properties modified on strain2_GLLUT
-strain2_GLLUT.RGBPoints = [-9.7238, 1.0, 1.0, 1.0, -0.34299999999999997, 0.5176470588235295, 0.0, 0.0]
-
+strain2_GLLUT.RGBPoints = [GL_T1, 0.5176470588235295, 0.0, 0.0, GL_T2, 1.0, 1.0, 1.0]
 
 
 # Properties modified on strain2_GLPWF
-strain2_GLPWF.Points = [-9.7238, 0.0, 0.5, 0.0, -1.8474680185317993, 0.0, 0.5, 0.0, -0.34299999999999997, 1.0, 0.5, 0.0]
+strain2_GLPWF.Points = [GL_T1, 1.0, 0.5, 0.0, ((GL_T1 + GL_T2) / 2), 0.0, 0.5, 0.0, GL_T2, 0.0, 0.5, 0.0]
 
+# Properties modified on threshold1
+threshold1.ThresholdRange = [GL_T1, GL_T2]
+
+
+# Rescale transfer function
+strain2_GLLUT.RescaleTransferFunction(GL_T1, GL_T2)
+
+
+
+# Rescale transfer function
+strain2_GLPWF.RescaleTransferFunction(GL_T1, GL_T2)
+
+
+# update the view to ensure updated data information
+renderView1.Update()
 
 # hide data in view
 Hide(strain2_GL_t, renderView1)
@@ -1043,30 +1078,6 @@ extractSubset3Display.SetScalarBarVisibility(renderView1, True)
 renderView1.Update()
 
 
-# Properties modified on extractSubset3
-#extractSubset3.VOI = [14, 139, 0, 67, 0, 43]
-
-
-# update the view to ensure updated data information
-#renderView1.Update()
-
-
-# Properties modified on extractSubset3
-#extractSubset3.VOI = [14, 139, 20, 67, 0, 43]
-
-
-# update the view to ensure updated data information
-#renderView1.Update()
-
-
-# Properties modified on extractSubset3
-#extractSubset3.VOI = [14, 139, 20, 67, 14, 43]
-
-
-# update the view to ensure updated data information
-#renderView1.Update()
-
-
 # create a new 'Threshold'
 threshold2 = Threshold(registrationName='Threshold2', Input=extractSubset3)
 threshold2.Scalars = ['POINTS', 'strain2_GM']
@@ -1117,47 +1128,35 @@ threshold2Display.SetScalarBarVisibility(renderView1, True)
 # update the view to ensure updated data information
 renderView1.Update()
 
-
-# Properties modified on threshold2
-threshold2.ThresholdRange = [-9.7238, 0.0]
-
-
-# update the view to ensure updated data information
-renderView1.Update()
-
-
-# Properties modified on threshold2
-threshold2.ThresholdRange = [-9.7238, -0.343]
-
-
-# update the view to ensure updated data information
-renderView1.Update()
-
-
-# Rescale transfer function
-strain2_GMLUT.RescaleTransferFunction(-9.7238, -0.343)
-
-
-# Rescale transfer function
-strain2_GMPWF.RescaleTransferFunction(-9.7238, -0.343)
-
+# set active source
+SetActiveSource(threshold2)
 
 
 # Properties modified on strain2_GMLUT
-strain2_GMLUT.RGBPoints = [-9.7238, 1.0, 1.0, 1.0, -0.34299999999999997, 0.48627450980392156, 0.7137254901960784, 1.0]
-
+strain2_GMLUT.RGBPoints = [GM_T1, 0.48627450980392156, 0.7137254901960784, 1.0, GM_T2, 1.0, 1.0, 1.0]
 
 
 # Properties modified on strain2_GMPWF
-strain2_GMPWF.Points = [-9.7238, 0.0, 0.5, 0.0, -2.0539636611938477, 0.0, 0.5, 0.0, -0.34299999999999997, 1.0, 0.5, 0.0]
+strain2_GMPWF.Points = [GM_T1, 1.0, 0.5, 0.0, ((GM_T1 + GM_T2) / 2), 0.0, 0.5, 0.0, GM_T2, 0.0, 0.5, 0.0]
+
+# Properties modified on threshold2
+threshold2.ThresholdRange = [GM_T1, GM_T2]
 
 
-# set active source
-SetActiveSource(threshold1)
+# update the view to ensure updated data information
+renderView1.Update()
 
 
-# Properties modified on threshold1
-threshold1.ThresholdRange = [-9.7238, -0.343]
+# Rescale transfer function
+strain2_GMLUT.RescaleTransferFunction(GM_T1, GM_T2)
+
+
+# Rescale transfer function
+strain2_GMPWF.RescaleTransferFunction(GM_T1, GM_T2)
+
+
+# Properties modified on strain2_GMLUT
+strain2_GMLUT.EnableOpacityMapping = 1
 
 
 # update the view to ensure updated data information
@@ -1250,30 +1249,6 @@ extractSubset4Display.SetScalarBarVisibility(renderView1, True)
 renderView1.Update()
 
 
-# Properties modified on extractSubset4
-#extractSubset4.VOI = [14, 139, 0, 67, 0, 43]
-
-
-# update the view to ensure updated data information
-#renderView1.Update()
-
-
-# Properties modified on extractSubset4
-#extractSubset4.VOI = [14, 139, 20, 67, 0, 43]
-
-
-# update the view to ensure updated data information
-#renderView1.Update()
-
-
-# Properties modified on extractSubset4
-#extractSubset4.VOI = [14, 139, 20, 67, 14, 43]
-
-
-# update the view to ensure updated data information
-renderView1.Update()
-
-
 # create a new 'Threshold'
 threshold3 = Threshold(registrationName='Threshold3', Input=extractSubset4)
 threshold3.Scalars = ['POINTS', 'strain2_SL']
@@ -1324,47 +1299,39 @@ threshold3Display.SetScalarBarVisibility(renderView1, True)
 # update the view to ensure updated data information
 renderView1.Update()
 
+# set active source
+SetActiveSource(threshold3)
+
+
+# Properties modified on strain2_SLPWF
+strain2_SLPWF.Points = [SL_T1, 1.0, 0.5, 0.0, ((SL_T1 + SL_T2) / 2), 0.0, 0.5, 0.0, SL_T2, 0.0, 0.5, 0.0]
+
+
+strain2_SLLUT.RGBPoints = [SL_T1, 0.41568627450980394, 0.6588235294117647, 0.30980392156862746, SL_T2, 1.0, 1.0, 1.0]
+
+
 
 # Properties modified on threshold3
-threshold3.ThresholdRange = [-9.7238, 0.0]
+threshold3.ThresholdRange = [SL_T1, SL_T2]
 
 
 # update the view to ensure updated data information
 renderView1.Update()
 
-
-# Properties modified on threshold3
-threshold3.ThresholdRange = [-9.7238, 0.343]
-
-
-# update the view to ensure updated data information
-renderView1.Update()
 
 
 # Properties modified on strain2_SLLUT
 strain2_SLLUT.EnableOpacityMapping = 1
 
 
-# Rescale transfer function
-strain2_SLLUT.RescaleTransferFunction(-9.7238, -0.343)
-
 
 # Rescale transfer function
-strain2_SLPWF.RescaleTransferFunction(-9.7238, -0.343)
+strain2_SLLUT.RescaleTransferFunction(SL_T1, SL_T2)
 
 
 
-# Properties modified on strain2_SLLUT
-strain2_SLLUT.RGBPoints = [-9.7238, 1.0, 1.0, 1.0, -0.34299999999999997, 0.41568627450980394, 0.6588235294117647, 0.30980392156862746]
-
-
-
-# Properties modified on strain2_SLPWF
-strain2_SLPWF.Points = [-9.7238, 0.0, 0.5, 0.0, -1.7884693145751953, 0.0, 0.5, 0.0, -0.34299999999999997, 1.0, 0.5, 0.0]
-
-
-# Properties modified on threshold3
-threshold3.ThresholdRange = [-9.7238, -0.343]
+# Rescale transfer function
+strain2_SLPWF.RescaleTransferFunction(SL_T1, SL_T2)
 
 
 # update the view to ensure updated data information
@@ -1401,15 +1368,6 @@ SetActiveSource(slice2)
 SetActiveSource(slice3)
 
 
-# Properties modified on magLUT
-magLUT.EnableOpacityMapping = 1
-
-
-# Properties modified on magLUT
-magLUT.RGBPoints = [0.0, 0.0, 0.0, 0.0, 748.0, 1.0, 1.0, 1.0]
-
-# Properties modified on magPWF
-magPWF.Points = [0.0, 0.3499999940395355, 0.5, 0.0, 748.0, 1.0, 0.5, 0.0]
 
 # Properties modified on threshold1
 threshold1.AllScalars = 0
