@@ -51,3 +51,4 @@ This project was done at the Basel Muscle MRI group [BAMM](https://dbe.unibas.ch
 - Efena Akporeha
 - Francesco Santini
 - Xeni Deligianni
+- Claudia Weidensteiner
