@@ -27,8 +27,8 @@ SL = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_Soleus
 7. Click on 'Macros', run the the desired macro.
 
 # Folder Structure
-1. Macros: contains the static and time resolved macros in individual folders.
-2. NMES_Muscle belly: contains the static and time resolved datasets in their individual folders.
+#### 1. Macros: contains the static and time resolved macros in individual folders.
+#### 2. NMES_Muscle belly: contains the static and time resolved datasets in their individual folders.
 
 
 **Note:**
@@ -45,7 +45,7 @@ This pipeline depends on the followig library:
 
 # Authors
 
-This project was done at the Basel Muscle MRI group [BAMM](https://dbe.unibas.ch/en/research/imaging-modelling-diagnosis/basel-muscle-mri/) at the University of Basel, Switzerland.
+This project was done at the Basel Muscle MRI group [BAMM](https://dbe.unibas.ch/en/research/imaging-modelling-diagnosis/basel-muscle-mri/), of the University of Basel, Switzerland.
 
 #### Collaborators:
 - Efena Akporeha
