@@ -22,6 +22,9 @@ def calculateQuantiles(filename, quantiles):
         output.append(np.quantile(arr, q))
     return output
 
+GL = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_GL.vtk', [0.25, 0.75])
+GM = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_GM.vtk', [0.25, 0.75])
+SL = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_Soleus.vtk', [0.25, 0.75])
 
 
 # create a new 'Legacy VTK Reader'
@@ -457,8 +460,8 @@ renderView1.Update()
 #This method uses the filepath. Input the file path and uncomment this line of code
 #strain_max1_GLvtk = LegacyVTKReader(registrationName='strain_max1_GL.vtk', FileNames=['C:\\Users\\Efena\\Desktop\\UNIBAS MASTER\\Thesis\\paraview_files\\Muscle_stim_extracted\\strain_max1_GL.vtk'])
 
-#This method allows you to directly upload the strain VTK file on the pipeline browser 
-strain_max1_GLvtk = FindSource('strain_max1_GL.vtk') 
+#This method allows you to directly upload the strain VTK file on the pipeline browser
+strain_max1_GLvtk = FindSource('strain_max1_GL.vtk')
 
 # create a new 'Legacy VTK Reader'
 #strain_max1_GMvtk = LegacyVTKReader(registrationName='strain_max1_GM.vtk', FileNames=['C:\\Users\\Efena\\Desktop\\UNIBAS MASTER\\Thesis\\paraview_files\\Muscle_stim_extracted\\strain_max1_GM.vtk'])
@@ -474,9 +477,9 @@ strain_max1_GMvtkDisplay = Show(strain_max1_GMvtk, renderView1, 'UniformGridRepr
 
 #calling the files from which the quantiles are needed
 #replace with file path of the strain files
-GL = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_GL.vtk', [0.25, 0.75])
-GM = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_GM.vtk', [0.25, 0.75])
-SL = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_Soleus.vtk', [0.25, 0.75])
+#GL = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_GL.vtk', [0.25, 0.75])
+#GM = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_GM.vtk', [0.25, 0.75])
+#SL = calculateQuantiles('/Users/Efena/Desktop/preProcess/venv/strain_max1_Soleus.vtk', [0.25, 0.75])
 
 GL_T1 = GL[0]
 GL_T2 = GL[1]
