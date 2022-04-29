@@ -1367,6 +1367,17 @@ SetActiveSource(slice2)
 # set active source
 SetActiveSource(slice3)
 
+# Properties modified on strain1_GMLUT
+strain2_GMLUT.AutomaticRescaleRangeMode = 'Never'
+
+# Properties modified on strain1_GLLUT
+strain2_GLLUT.AutomaticRescaleRangeMode = 'Never'
+
+# get color transfer function/color map for 'strain1_SL'
+strain2_SLLUT = GetColorTransferFunction('strain1_SL')
+
+# Properties modified on strain1_SLLUT
+strain2_SLLUT.AutomaticRescaleRangeMode = 'Never'
 
 
 # Properties modified on threshold1

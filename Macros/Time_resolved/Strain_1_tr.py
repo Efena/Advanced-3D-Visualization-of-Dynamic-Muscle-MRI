@@ -1090,6 +1090,12 @@ strain1_GMLUT.EnableOpacityMapping = 1
 # set active source
 SetActiveSource(strain1_Soleus_t)
 
+# Properties modified on strain1_GLLUT
+strain1_GLLUT.AutomaticRescaleRangeMode = 'Never'
+
+# Properties modified on strain1_GMLUT
+strain1_GMLUT.AutomaticRescaleRangeMode = 'Never'
+
 
 # toggle 3D widget visibility (only when running from the GUI)
 Show3DWidgets(proxy=strain1_Soleus_tDisplay.SliceFunction)
@@ -1126,6 +1132,8 @@ strain1_SLLUT = GetColorTransferFunction('strain1_SL')
 # get opacity transfer function/opacity map for 'strain1_SL'
 strain1_SLPWF = GetOpacityTransferFunction('strain1_SL')
 
+# Properties modified on strain1_SLLUT
+strain1_SLLUT.AutomaticRescaleRangeMode = 'Never'
 
 # change representation type
 strain1_Soleus_tDisplay.SetRepresentationType('Surface')
